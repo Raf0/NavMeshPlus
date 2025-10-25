@@ -33,15 +33,31 @@ namespace NavMeshPlus.Components
             get { return s_NavMeshModifiers; }
         }
 
+        static bool modified = false;
+
+        public static bool IsModified()
+        {
+            return modified;
+        }
+
+        public static void CleanModified()
+        {
+            modified = false;
+        }
+
         void OnEnable()
         {
             if (!s_NavMeshModifiers.Contains(this))
+            {
                 s_NavMeshModifiers.Add(this);
+                modified = true;
+            }
         }
 
         void OnDisable()
         {
             s_NavMeshModifiers.Remove(this);
+            modified = true;
         }
 
         public bool AffectsAgentType(int agentTypeID)
