@@ -193,7 +193,6 @@ namespace NavMeshPlus.Extensions
                 var colliders = modifier.GetComponents<Collider2D>();
                 foreach (var collider in colliders)
                 {
-                    CollectSources(sources, collider, area, builder);
                     if (colliders.Length == 1 || !collider.isTrigger)
                         CollectSources(sources, collider, area, builder);
                 }

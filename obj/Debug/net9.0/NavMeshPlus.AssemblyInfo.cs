@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NavMeshPlus")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3fdf1984803c4518eafea98fcb416c8a3aa09f26")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+983cb2b3eb72650607ea0831b3f8215b6c4f7e6f")]
 [assembly: System.Reflection.AssemblyProductAttribute("NavMeshPlus")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NavMeshPlus")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
