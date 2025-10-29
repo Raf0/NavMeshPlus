@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using NavMeshPlus.Extensions;
+using System;
 
 namespace NavMeshPlus.Components
 {
@@ -33,31 +34,28 @@ namespace NavMeshPlus.Components
             get { return s_NavMeshModifiers; }
         }
 
-        static bool modified = false;
-
-        public static bool IsModified()
-        {
-            return modified;
-        }
-
-        public static void CleanModified()
-        {
-            modified = false;
-        }
+        public static Action<NavMeshModifier>? OnModifierEnabled;
+        public static Action<NavMeshModifier>? OnModifierDisabled;
+        public static Action<NavMeshModifier>? OnModifierMoved;
 
         void OnEnable()
         {
             if (!s_NavMeshModifiers.Contains(this))
             {
                 s_NavMeshModifiers.Add(this);
-                modified = true;
+                OnModifierEnabled?.Invoke(this);
             }
         }
 
         void OnDisable()
         {
             s_NavMeshModifiers.Remove(this);
-            modified = true;
+            OnModifierDisabled?.Invoke(this);
+        }
+
+        public void OnMove()
+        {
+            OnModifierMoved?.Invoke(this);
         }
 
         public bool AffectsAgentType(int agentTypeID)
